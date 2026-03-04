@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnival Escape - Control Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="fog"></div>
+    <div class="fog fog-2"></div>
+
+    <div class="container">
+        <header>
+            <h1>Carnival Escape</h1>
+            <p class="subtitle">Room Control Panel</p>
+        </header>
+
+        <!-- Top Row: Timer + Display Settings side by side -->
+        <div class="top-row">
+            <!-- Timer Section -->
+            <section class="card timer-card">
+                <h2>Countdown Timer</h2>
+                <div class="timer-display" id="timerDisplay">60:00</div>
+                <div class="timer-controls">
+                    <label class="duration-label">
+                        Duration (min):
+                        <input type="number" id="timerDuration" value="60" min="1" max="180">
+                    </label>
+                    <div class="btn-group">
+                        <button id="btnStart" class="btn btn-start" onclick="timerStart()">Start</button>
+                        <button id="btnStop" class="btn btn-stop" onclick="timerStop()" disabled>Stop</button>
+                        <button id="btnReset" class="btn btn-reset" onclick="timerReset()">Reset</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Display Control Section -->
+            <section class="card display-card">
+                <h2>Display Settings</h2>
+                <div class="display-controls">
+                    <div class="control-row">
+                        <label for="brightness">Brightness</label>
+                        <input type="range" id="brightness" min="0" max="255" value="128">
+                        <span id="brightnessValue">128</span>
+                    </div>
+                    <div class="control-row">
+                        <label for="displayColor">Colour</label>
+                        <input type="color" id="displayColor" value="#ff0000">
+                        <span id="colorValue">#ff0000</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Hint Message Section -->
+        <section class="card hint-card">
+            <h2>Room Display Message</h2>
+            <textarea id="hintMessage" placeholder="Type a hint or message for the room display..." rows="3"></textarea>
+            <div class="hint-actions">
+                <label class="duration-label">
+                    Display for (sec):
+                    <input type="number" id="hintDuration" value="30" min="5" max="300" step="5">
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="hintFlash">
+                    Flash message
+                </label>
+                <div class="btn-group">
+                    <button class="btn btn-send" onclick="sendHint()">Send Message</button>
+                    <button class="btn btn-clear" onclick="clearHint()">Clear Display</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Props Section -->
+        <section class="card props-card">
+            <h2>Room Props</h2>
+            <div class="props-grid" id="propsGrid"></div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
