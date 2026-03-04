@@ -23,7 +23,7 @@ Open `http://localhost:8080`
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `NODERED_URL` | `http://nodered.cbf.nz` | Base URL of your Node-RED instance |
+| `NODERED_URL` | `http://nodered.local` | Base URL of your Node-RED instance |
 
 ```bash
 docker run -p 8080:80 -e NODERED_URL=http://your-nodered-host:1880 carnival-escape
